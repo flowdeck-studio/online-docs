@@ -1,45 +1,54 @@
 ---
 title: "Debugging"
-description: "Debug iOS and macOS Application"
+description: "Debug iOS and macOS applications with LLDB"
 ---
 
 FlowDeck integrates with LLDB-DAP to provide a powerful debugging experience for Swift applications directly within VS Code, offering features comparable to Xcode's debugging capabilities.
 
-## Debugging Features
+## Features
 
 - **Breakpoint Management** - Set, disable, and manage breakpoints
 - **Variable Inspection** - Examine variable values during execution
-- \*\*Call Stack - \*\*Explore Threads and the entire app call stack.
+- **Call Stack** - Explore threads and the entire app call stack
 - **Console Output** - View application logs during debugging (OSLog)
 - **Step Controls** - Step over, into, and out of functions
 - **Expression Evaluation** - Evaluate Swift expressions in context
 
-## Start the Debugger
+## Getting Started
 
-1. Open your iOS project in VS Code
-2. Set breakpoints by clicking in the gutter next to line numbers
-3. Choose your Scheme and Target (simulator or device)
-4. Press `F5`
-5. Select `FlowDeck (LLDB)` from the list.
+<Steps>
+  <Step title="Open your project">
+    Open your iOS project in VS Code
+  </Step>
+  <Step title="Set breakpoints">
+    Click in the gutter next to line numbers to set breakpoints
+  </Step>
+  <Step title="Choose target">
+    Select your scheme and target (simulator or device)
+  </Step>
+  <Step title="Start debugging">
+    Press `F5` and select **FlowDeck (LLDB)** from the list
+  </Step>
+</Steps>
 
-### Automatic Launch Configuration Setup (Advanced)
+## Advanced: Launch Configuration
 
-VSCode build configurations are defined ways to compile, run, and debug your code. They're specified through JSON files in the `.vscode` folder and tell VSCode how to execute build tasks for your project.
+VS Code launch configurations define how to compile, run, and debug your code. They're specified through JSON files in the `.vscode` folder.
 
-You can configure VSCode launch configurations via a `.vscode/launch.json`file.
+You can configure VS Code launch configurations via `.vscode/launch.json`:
 
-1. Go to VSCode `Debug` panel and click `Create a launch.json file`
-2. Select FlowDeck (LLDB) from the list
-3. A new file will be automatically created for you with default Build and Run Settings
+1. Go to the VS Code Debug panel and click **Create a launch.json file**
+2. Select **FlowDeck (LLDB)** from the list
+3. A new file will be automatically created with default build and run settings
 
-This means you can start debugging immediately without any manual actions. The automatic configuration includes:
+The automatic configuration includes:
 
 - Proper LLDB adapter settings
 - Pre-launch task integration
 - Optimized presentation settings
 - Environment variable support
 
-Example `.vscode/launch.json`file
+### Example launch.json
 
 ```javascript
 {

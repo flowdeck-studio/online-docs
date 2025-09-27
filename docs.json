@@ -49,15 +49,15 @@
     "groups": [
       {
         "group": "FlowDeck",
-        "pages": ["introduction", "install-and-setup"]
+        "pages": ["introduction", "install-and-setup", "the-basics"]
       },
       {
-        "group": "The Basics",
+        "group": "Core Features",
         "pages": ["the-basics/xcode-projects", "the-basics/code-intelligence", "the-basics/simulators", "the-basics/devices", "the-basics/building", "the-basics/debugging"]
       },
       {
         "group": "✨ Pro Features",
-        "pages": ["pro-features/build-optimizer", "pro-features/testing", "pro-features/logging"]
+        "pages": ["pro-features/index", "pro-features/build-optimizer", "pro-features/testing", "pro-features/logging"]
       }
     ]
   },

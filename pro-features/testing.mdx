@@ -1,13 +1,13 @@
 ---
-title: "Test Manager"
-description: "Run and manage tests for your Apple projects"
+title: "Testing"
+description: "Run and manage unit and UI tests"
 ---
 
-FlowDeck provides comprehensive support for running and managing tests for your Apple projects directly within VS Code, with full integration into the VSCode Test Explorer.
+FlowDeck provides comprehensive support for running and managing tests for your Apple projects directly within VS Code, with full integration into the VS Code Test Explorer.
 
-## Testing Features
+## Features
 
-- **VSCode Test Explorer Integration** - Browse and run tests from the Test Explorer sidebar
+- **VS Code Test Explorer Integration** - Browse and run tests from the Test Explorer sidebar
 - **Test Discovery** - Automatic discovery and hierarchical display of test targets, classes, and methods
 - **Click-to-Navigate** - Click on test results to jump directly to test source code
 - **Real-time Results** - Live test execution status and detailed output
@@ -17,46 +17,52 @@ FlowDeck provides comprehensive support for running and managing tests for your 
 
 ## Getting Started
 
-1. Open your iOS/macOS project in VS Code
-2. Open the VSCode Test Explorer sidebar (Testing icon in the Activity Bar)
-4. FlowDeck will automatically discover your tests and display them hierarchically
-5. Click on any test to run it, or use FlowDeck commands for batch operations
+<Steps>
+  <Step title="Open your project">
+    Open your iOS/macOS project in VS Code
+  </Step>
+  <Step title="Open Test Explorer">
+    Click the Testing icon in the Activity Bar to open the Test Explorer sidebar
+  </Step>
+  <Step title="View discovered tests">
+    FlowDeck automatically discovers your tests and displays them hierarchically
+  </Step>
+  <Step title="Run tests">
+    Click on any test to run it, or use FlowDeck commands for batch operations
+  </Step>
+</Steps>
 
-## VSCode Test Explorer Integration
+## Test Explorer Integration
 
-FlowDeck integrates seamlessly with VSCode's built-in Test Explorer, providing:
+FlowDeck integrates seamlessly with VS Code's built-in Test Explorer, providing:
 
 ### Test Discovery
-- **Automatic Discovery**: Tests are discovered automatically when you open a project
-- **Background Refresh**: Test structure updates in the background when schemes change
-- **Hierarchical Display**: Tests are organized by target → class → method structure
+- **Automatic Discovery** - Tests are discovered automatically when you open a project
+- **Background Refresh** - Test structure updates in the background when schemes change
+- **Hierarchical Display** - Tests are organized by target → class → method
 
 ### Test Execution
-- **Individual Tests**: Click the play button next to any test method
-- **Test Classes**: Run all tests in a class by clicking the class play button
-- **Test Targets**: Run entire test suites by clicking the target play button
-- **Real-time Updates**: Test status updates live during execution
+- **Individual Tests** - Click the play button next to any test method
+- **Test Classes** - Run all tests in a class by clicking the class play button
+- **Test Targets** - Run entire test suites by clicking the target play button
+- **Real-time Updates** - Test status updates live during execution
 
 ### Navigation
-- **Click to Source**: Click on any test name to navigate directly to the source code
-- **Result Navigation**: Click on test results to jump to the test implementation
-- **Error Navigation**: Failed tests show detailed error information with source links
+- **Click to Source** - Click on any test name to navigate directly to the source code
+- **Result Navigation** - Click on test results to jump to the test implementation
+- **Error Navigation** - Failed tests show detailed error information with source links
 
 
-### Building for Testing
+## Building for Testing
 
-To build your application for testing:
+To build your application for testing without running tests:
 
-```
-FlowDeck: Build for Testing
-```
+Use the command: `FlowDeck: Build for Testing`
 
-This will compile your application with test targets but won't execute the tests.
+This compiles your application with test targets but doesn't execute the tests.
 
-### Running Tests Without Building
+## Running Tests Without Building
 
 If you've already built your application, you can run tests without rebuilding:
 
-```
-FlowDeck: Test Without Building
-```
+Use the command: `FlowDeck: Test Without Building`

@@ -1,32 +1,40 @@
 ---
-title: "Devices"
-description: "Deploy and test on physical iOS devices"
+title: "Physical Devices"
+description: "Deploy and test on real iOS devices"
 ---
 
-# Physical iOS Device Support
-
-FlowDeck provides support for working with physical iOS devices directly from VS Code.
+FlowDeck provides comprehensive support for working with physical iOS devices directly from VS Code.
 
 ## Getting Started
 
-1. Connect your iOS device to your Mac via USB
-2. Ensure your device is trusted and unlocked
-3. Open your project in VS Code
-4. Select your device as a build destination
+<Steps>
+  <Step title="Connect your device">
+    Connect your iOS device to your Mac via USB or USB-C
+  </Step>
+  <Step title="Trust and unlock">
+    Ensure your device is trusted and unlocked
+  </Step>
+  <Step title="Open your project">
+    Open your project in VS Code with FlowDeck
+  </Step>
+  <Step title="Select as destination">
+    Select your device as the build destination
+  </Step>
+</Steps>
 
 ## Device Requirements
 
 Before deploying to a physical device, ensure:
 
-1. Your Apple Developer account has the correct provisioning profiles
-2. Your device is registered in your Apple Developer account
-3. Your app's bundle identifier matches your provisioning profile
-4. Your deployment target is compatible with your device's iOS version
-5. Your Device must be running iOS 17+
+- Apple Developer account has the correct provisioning profiles
+- Device is registered in your Apple Developer account
+- App's bundle identifier matches your provisioning profile
+- Deployment target is compatible with your device's iOS version
+- Device is running iOS 17 or later
 
-## Supported Device Types
+## Supported Devices
 
-FlowDeck can detect and work with several device types:
+FlowDeck can detect and work with:
 
 - iPhone devices
 - iPad devices
@@ -36,10 +44,12 @@ FlowDeck can detect and work with several device types:
 
 ## Device Selection
 
-You can select a connected device as your build destination:
+Select a connected device as your build destination:
 
-1. Use `FlowDeck: Select Destination` command
+1. Use the `FlowDeck: Select Destination` command
 2. Choose your connected device from the list
 3. Build and run your app on the selected device
 
-(You can also right-click the Device in FlowDeck's devices panel and select `Select destination`)
+<Tip>
+  You can also right-click the device in FlowDeck's devices panel and select **Select destination**
+</Tip>

@@ -1,38 +1,38 @@
 ---
-title: "Building your app"
-description: "Build and run from VSCode"
+title: "Building"
+description: "Build and run your apps from VS Code"
 ---
 
-### From FlowDeck's Scheme Panel
+## Building from the Scheme Panel
 
-Go the FlowDeck Panel -\> Schemes and use the Scheme actions:
+Open the FlowDeck panel → Schemes and use the scheme actions:
 
-- <Icon icon="wrench" /> Build
-- <Icon icon="play" /> Build and Run
+- <Icon icon="wrench" /> **Build** - Compile your app
+- <Icon icon="play" /> **Build and Run** - Compile and launch your app
 
 ![building.png](../images/scheme.png)
 
-### From Command Palette
+## Building from Command Palette
 
-Build commands are also available via the Command palette:
+Build commands are also available via the Command Palette:
 
-- `⌘⇧P` -\> FlowDeck: Build
-- `⌘⇧P` -\> FlowDeck: Build and Run
+- `⌘⇧P` → `FlowDeck: Build`
+- `⌘⇧P` → `FlowDeck: Build and Run`
 
-### Via Build Configuration Tasks (Advanced)
+## Advanced: Build Configuration Tasks
 
-VSCode build configurations are defined ways to compile, run, and debug your code. They're specified through JSON files in the `.vscode` folder and tell VSCode how to execute build tasks for your project.
+VS Code build configurations are defined ways to compile, run, and debug your code. They're specified through JSON files in the `.vscode` folder and tell VS Code how to execute build tasks for your project.
 
-You can configure VSCode to run external Tasks via `.vscode/tasks.json`.  FlowDeck supports all build operations to be configured this way.
+You can configure VS Code to run external tasks via `.vscode/tasks.json`. FlowDeck supports all build operations to be configured this way.
 
-- To configure your first Build task, enter `⌘⇧B`
-- Select the task you want to run by default
-- FlowDeck will create a `.vscode/tasks.json` with the selected configuration.
-- Once created, you can add multiple tasks assign different shortcuts or run specific ones by default.
+1. To configure your first build task, press `⌘⇧B`
+2. Select the task you want to run by default
+3. FlowDeck will create a `.vscode/tasks.json` with the selected configuration
+4. Once created, you can add multiple tasks, assign different shortcuts, or run specific ones by default
 
-For more info about Tasks, check out [VSCode Documentation](https://code.visualstudio.com/docs/debugtest/tasks)
+For more information about tasks, see the [VS Code documentation](https://code.visualstudio.com/docs/debugtest/tasks).
 
-Example `.vscode/tasks.json` file:
+### Example tasks.json
 
 ```javascript
 {

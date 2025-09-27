@@ -3,29 +3,31 @@ title: "Simulators"
 description: "Work with iOS simulators in FlowDeck"
 ---
 
-FlowDeck provides integration with iOS simulators directly within VS Code, allowing you to manage and interact with simulators without switching to Xcode.
+FlowDeck provides seamless integration with iOS simulators directly within VS Code, allowing you to manage and interact with simulators without switching to Xcode.
 
 ## Simulator Selection
 
-You can select a default simulator as your build destination:
+Select a simulator as your build destination:
 
-1. Use `FlowDeck: Select Destination` command
-2. Choose your simulator device from the list
-3. Build and run your app on the selected device
+1. Use the `FlowDeck: Select Destination` command
+2. Choose your simulator from the list
+3. Build and run your app on the selected simulator
 
-(You can also right-click the Simulator in FlowDeck's devices panel and select `Select destination`)
+<Tip>
+  You can also right-click the simulator in FlowDeck's devices panel and select **Select destination**
+</Tip>
 
-Flowdeck's simulator panel provides quick actions to Simulator commands.
+FlowDeck's simulator panel provides quick access to simulator commands:
 
-- <Icon icon="map-pin" /> Select Simulator
-- <Icon icon="play" /> Start Simulator
-- <Icon icon="Stop" /> Stop Simulator
+- <Icon icon="map-pin" /> **Select Simulator** - Set as build destination
+- <Icon icon="play" /> **Start Simulator** - Boot the simulator
+- <Icon icon="stop" /> **Stop Simulator** - Shut down the simulator
 
 ![simulators.png](../images/simulators.png)
 
-## Availsble Simulator Commands
+## Available Commands
 
-FlowDeck also provides the following simulator commands:
+FlowDeck provides the following simulator commands via the Command Palette:
 
 | Command | Description |
 |---------|-------------|
@@ -34,5 +36,8 @@ FlowDeck also provides the following simulator commands:
 | Open Simulator | Launch the Simulator application |
 | Remove Simulator Cache | Clear simulator caches |
 
-## Adding/Removing Simulators
-Right now, FlowDeck does not support managing your simulator runtimes.  This feature will be coming soon.
+## Managing Simulators
+
+<Note>
+  FlowDeck does not currently support adding or removing simulator runtimes. This feature is coming soon.
+</Note>

@@ -3,58 +3,80 @@ title: "Build Optimizer"
 description: "Speed up your build times with FlowDeck"
 ---
 
-FlowDeck Includes a Build Optimizer Helper that significantly improves Xcode build performance by intelligently managing network connections to Apple's developer services during builds.
+FlowDeck includes a Build Optimizer helper that significantly improves Xcode build performance by intelligently managing network connections to Apple's developer services during builds.
 
 ## Installation
 
 The Build Optimizer requires one-time installation of a privileged helper tool:
 
-1. In VS Code, open the Command Palette (⌘⇧P)
-2. Type and select "FlowDeck: Install Build Optimizer"
-3. Authenticate with your macOS password when prompted
-4. The helper will be installed as a system service
+<Steps>
+  <Step title="Open Command Palette">
+    Press `⌘⇧P` to open the Command Palette
+  </Step>
+  <Step title="Install Build Optimizer">
+    Type and select `FlowDeck: Install Build Optimizer`
+  </Step>
+  <Step title="Authenticate">
+    Enter your macOS password when prompted
+  </Step>
+  <Step title="Installation complete">
+    The helper will be installed as a system service
+  </Step>
+</Steps>
 
-You'll be prompted to install the Build Optimizer automatically if FlowDeck detects that builds could be optimized.
+<Note>
+  FlowDeck will automatically prompt you to install the Build Optimizer when it detects that your builds could be optimized.
+</Note>
 
-## Commands
+## Available Commands
 
-FlowDeck provides several commands for managing the Build Optimizer:
+Manage the Build Optimizer with these commands:
 
 | Command | Description |
 |---------|-------------|
-| `FlowDeck: Install Build Optimizer` | Install the Build Optimizer helper tool |
-| `FlowDeck: Uninstall Build Optimizer` | Remove the Build Optimizer helper tool |
-| `FlowDeck: Check Xcode Optimizer Status` | Verify if the optimizer is installed and working |
-| `FlowDeck: Test Build Optimizer` | Run a diagnostic test of the optimizer |
-| `FlowDeck: Show Build Optimizer Logs` | Display logs related to the Build Optimizer |
-| `FlowDeck: Repair Build Optimizer Installation` | Fix installation issues with the helper tool |
+| `FlowDeck: Install Build Optimizer` | Install the Build Optimizer helper |
+| `FlowDeck: Uninstall Build Optimizer` | Remove the Build Optimizer helper |
+| `FlowDeck: Check Xcode Optimizer Status` | Verify optimizer status |
+| `FlowDeck: Test Build Optimizer` | Run diagnostic tests |
+| `FlowDeck: Show Build Optimizer Logs` | View optimizer logs |
+| `FlowDeck: Repair Build Optimizer Installation` | Fix installation issues |
 
-## Security Considerations
+## Security
 
-The Build Optimizer uses a privileged helper tool to modify system files:
+The Build Optimizer uses a privileged helper tool with the following security measures:
 
-- The helper is digitally signed and follows Apple's security guidelines
-- Installation requires administrator authentication
-- The tool only modifies specific entries in the hosts file
+- Digitally signed and follows Apple's security guidelines
+- Requires administrator authentication for installation
+- Only modifies specific entries in the hosts file
 - All changes are temporary and automatically reversed
-- The source code for the helper is open and available for inspection
+- Open source code available for inspection
 
 ## Performance Impact
 
-The Build Optimizer can significantly impact build performance:
+Typical performance improvements with the Build Optimizer:
 
-- **Initial Builds**: Typically 10-20% faster
-- **Incremental Builds**: Up to 30% faster
-- **Clean Builds**: 15-25% faster on average
+- **Initial Builds** - 10-20% faster
+- **Incremental Builds** - Up to 30% faster
+- **Clean Builds** - 15-25% faster on average
 
-Actual performance gains vary based on project complexity, network conditions, and Apple's developer services responsiveness.
+<Info>
+  Actual performance gains vary based on project complexity, network conditions, and Apple's developer services responsiveness.
+</Info>
 
 ## Uninstallation
 
 To remove the Build Optimizer:
 
-1. Open Command Palette (⌘⇧P)
-2. Execute `FlowDeck: Uninstall Build Optimizer`
-3. Authenticate with your macOS password when prompted
+<Steps>
+  <Step title="Open Command Palette">
+    Press `⌘⇧P`
+  </Step>
+  <Step title="Uninstall">
+    Execute `FlowDeck: Uninstall Build Optimizer`
+  </Step>
+  <Step title="Authenticate">
+    Enter your macOS password when prompted
+  </Step>
+</Steps>
 
-This will completely remove the helper tool from your system. 
+This completely removes the helper tool from your system. 

@@ -1,36 +1,44 @@
 ---
-title: "OSLog Support"
-description: "How to work with simulator logs in FlowDeck"
+title: "OSLog Integration"
+description: "View and analyze device logs"
 ---
 
-# Viewing Device Logs in Console.app
+When debugging on physical iOS devices, FlowDeck integrates with macOS's built-in Console.app to view detailed logs from connected devices.
 
-When debugging on physical iOS devices, FlowDeck cannot directly capture device logs due to Apple's restrictions. However, you can use macOS's built-in Console.app to view detailed logs from connected devices.
+## Viewing Device Logs
 
-## Steps to View Device Logs
-
-1. Open Console.app (found in Applications/Utilities)
-2. In the sidebar, select your connected device under the "Devices" section
-3. In the search/filter field, enter your app's main library name to filter logs (You can copy from DeckFlow)
-4. Click the "Start" button to begin streaming logs
+<Steps>
+  <Step title="Open Console.app">
+    Open Console.app from Applications/Utilities or use Spotlight search
+  </Step>
+  <Step title="Select your device">
+    In the sidebar, find your connected device under the **Devices** section
+  </Step>
+  <Step title="Filter logs">
+    Enter your app's main library name in the search/filter field to filter logs
+  </Step>
+  <Step title="Start streaming">
+    Click the **Start** button to begin streaming live logs
+  </Step>
+</Steps>
 
 <Note>
-  Console.app provides a powerful interface for viewing detailed device logs, system messages, and crash reports.
+  Console.app provides a powerful interface for viewing detailed device logs, system messages, and crash reports from your iOS devices.
 </Note>
 
-## Tips for Effective Log Viewing
+## Best Practices
 
-- Use predicate filters for more specific results, such as `library contains "appname.dyl"`
-- The "Info" level often doesn't include enough detail - try selecting "Default" or "Debug" level from the dropdown menu
-- For crash reports and detailed system logs, check both the "Errors and Faults" and "Show Info Messages" options
-- You can save log snapshots for later analysis using File → Save
+- Use predicate filters for specific results (e.g., `library contains "appname.dylib"`)
+- Select **Debug** or **Default** log level for more detailed information
+- Enable **Errors and Faults** and **Show Info Messages** for comprehensive logging
+- Save log snapshots for later analysis using **File** → **Save**
 
-## Common Issues
+## Troubleshooting
 
-- If your device doesn't appear in the sidebar, try disconnecting and reconnecting it
-- Ensure that you've trusted the computer on your iOS device when prompted
-- For devices with iOS 17+, you may need to enable Developer Mode on the device
+- **Device not appearing** - Disconnect and reconnect your device
+- **Trust issues** - Ensure you've trusted the computer on your iOS device
+- **iOS 17+ devices** - Enable Developer Mode in Settings → Privacy & Security
 
 ## Additional Resources
 
-For more information on advanced Console.app usage, see [Apple's documentation on Console](https://developer.apple.com/documentation/os/logging). 
+For advanced Console.app usage, see [Apple's logging documentation](https://developer.apple.com/documentation/os/logging). 
