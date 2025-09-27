@@ -1,0 +1,97 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "FlowDeck",
+  "logo": "https://getflowdeck.com/logo.png",
+  "favicon": "https://getflowdeck.com/logo.png",
+  "colors": {
+    "primary": "#245ADF",
+    "light": "#5AC8FA",
+    "dark": "#007AFF"
+  },
+  "navbar": {
+    "primary": {
+      "type": "button",
+      "label": "Get FlowDeck",
+      "href": "https://marketplace.visualstudio.com/items?itemName=afterxleep.FlowDeck"
+    }
+  },
+  "topbar": {
+    "links": [
+      {
+        "name": "Support",
+        "url": "https://github.com/afterxleep/flowdeck/issues"
+      },
+      {
+        "name": "GitHub",
+        "url": "https://github.com/afterxleep/flowdeck"
+      }
+    ]
+  },
+  "anchors": [
+    {
+      "name": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/afterxleep/flowdeck"
+    },
+    {
+      "name": "VS Code Marketplace",
+      "icon": "code",
+      "url": "https://marketplace.visualstudio.com/items?itemName=afterxleep.FlowDeck"
+    },
+    {
+      "name": "Changelog",
+      "icon": "list",
+      "url": "/changelog"
+    }
+  ],
+  "navigation": {
+    "groups": [
+      {
+        "group": "FlowDeck",
+        "pages": ["introduction", "install-and-setup"]
+      },
+      {
+        "group": "The Basics",
+        "pages": ["the-basics/xcode-projects", "the-basics/code-intelligence", "the-basics/simulators", "the-basics/devices", "the-basics/building", "the-basics/debugging"]
+      },
+      {
+        "group": "✨ Pro Features",
+        "pages": ["pro-features/build-optimizer", "pro-features/testing", "pro-features/logging"]
+      }
+    ]
+  },
+  "footerSocials": {
+    "github": "https://github.com/afterxleep/flowdeck",
+    "twitter": "https://twitter.com/afterxleep"
+  },
+  "feedback": {
+    "thumbsRating": true,
+    "suggestEdit": true,
+    "raiseIssue": true
+  },
+  "search": {
+    "prompt": "Search FlowDeck docs..."
+  },
+  "seo": {
+    "indexHiddenPages": false
+  },
+  "metadata": {
+    "og:title": "FlowDeck - Swift and iOS Development in VS Code",
+    "og:description": "Professional Swift and iOS development tools for Visual Studio Code",
+    "og:image": "/images/logo.png",
+    "twitter:card": "summary_large_image"
+  },
+  "analytics": {
+    "ga4": {
+      "measurementId": ""
+    }
+  },
+  "versions": ["v0.32.0"],
+  "api": {
+    "baseUrl": "https://api.flowdeck.dev",
+    "auth": {
+      "method": "bearer"
+    }
+  }
+}

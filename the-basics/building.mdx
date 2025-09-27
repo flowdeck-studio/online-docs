@@ -1,0 +1,59 @@
+---
+title: "Building your app"
+description: "Build and run from VSCode"
+---
+
+### From FlowDeck's Scheme Panel
+
+Go the FlowDeck Panel -\> Schemes and use the Scheme actions:
+
+- <Icon icon="wrench" /> Build
+- <Icon icon="play" /> Build and Run
+
+![building.png](../images/scheme.png)
+
+### From Command Palette
+
+Build commands are also available via the Command palette:
+
+- `⌘⇧P` -\> FlowDeck: Build
+- `⌘⇧P` -\> FlowDeck: Build and Run
+
+### Via Build Configuration Tasks (Advanced)
+
+VSCode build configurations are defined ways to compile, run, and debug your code. They're specified through JSON files in the `.vscode` folder and tell VSCode how to execute build tasks for your project.
+
+You can configure VSCode to run external Tasks via `.vscode/tasks.json`.  FlowDeck supports all build operations to be configured this way.
+
+- To configure your first Build task, enter `⌘⇧B`
+- Select the task you want to run by default
+- FlowDeck will create a `.vscode/tasks.json` with the selected configuration.
+- Once created, you can add multiple tasks assign different shortcuts or run specific ones by default.
+
+For more info about Tasks, check out [VSCode Documentation](https://code.visualstudio.com/docs/debugtest/tasks)
+
+Example `.vscode/tasks.json` file:
+
+```javascript
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "flowdeck",
+			"action": "build",
+			"problemMatcher": [
+				"$flowdeck-watch",
+				"$flowdeck-xcodebuild-default",
+				"$flowdeck-xcbeautify-errors",
+				"$flowdeck-xcbeautify-warnings"
+			],
+			"label": "flowdeck: build",
+			"detail": "Build the app",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
+```

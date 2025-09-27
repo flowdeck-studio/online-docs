@@ -1,0 +1,45 @@
+---
+title: "Devices"
+description: "Deploy and test on physical iOS devices"
+---
+
+# Physical iOS Device Support
+
+FlowDeck provides support for working with physical iOS devices directly from VS Code.
+
+## Getting Started
+
+1. Connect your iOS device to your Mac via USB
+2. Ensure your device is trusted and unlocked
+3. Open your project in VS Code
+4. Select your device as a build destination
+
+## Device Requirements
+
+Before deploying to a physical device, ensure:
+
+1. Your Apple Developer account has the correct provisioning profiles
+2. Your device is registered in your Apple Developer account
+3. Your app's bundle identifier matches your provisioning profile
+4. Your deployment target is compatible with your device's iOS version
+5. Your Device must be running iOS 17+
+
+## Supported Device Types
+
+FlowDeck can detect and work with several device types:
+
+- iPhone devices
+- iPad devices
+- Apple Watch devices
+- Apple TV devices
+- Apple Vision Pro devices
+
+## Device Selection
+
+You can select a connected device as your build destination:
+
+1. Use `FlowDeck: Select Destination` command
+2. Choose your connected device from the list
+3. Build and run your app on the selected device
+
+(You can also right-click the Device in FlowDeck's devices panel and select `Select destination`)

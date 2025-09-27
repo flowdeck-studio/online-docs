@@ -1,0 +1,71 @@
+---
+title: "Install and Setup"
+description: "Get FlowDeck up and running"
+---
+
+FlowDeck is a Visual Studio Code extension available for macOS.  It's compatible with most VSCode IDEs, including Cursor and Windsurf
+
+## Prerequisites
+
+Before installing FlowDeck, ensure you have:
+
+<Steps>
+  <Step title="Recent macOS running on an Apple Silicon Mac">
+    <Warning>
+      Windows and Linux are not supported.
+    </Warning>
+    - Apple Silicon Mac (M1 or higher)
+    - macOS 13 (Ventura) or higher
+  </Step>
+  <Step title="Xcode">
+    <Info>
+      Flowdeck uses XCodes internal tools to build and debug your apps.
+    </Info>
+    - Download from the [Mac App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12) (14.0 or later)
+    - Launch Xcode at least once to install components
+    - Accept the license agreement
+  </Step>
+  <Step title="Xcode Command Line Tools">
+    Install the latest Command line tools
+
+    ```bash
+    xcode-select --install
+    ```
+  </Step>
+  <Step title="Download your favorite VSCode editor">
+    <Info>
+      FlowDeck is compatible with most VSCode based editors
+    </Info>
+    - [Visual Studio Code ](https://code.visualstudio.com/download)(1.85 or higher)
+    - [Cursor](https://cursor.com/) (1.0 or higher)
+    - [Windsurf](https://windsurf.com) (1.0 or higher)
+  </Step>
+</Steps>
+
+## Installation
+
+### Install the FlowDeck Extension
+
+<Tabs>
+  <Tab title="Via VS Code Marketplace">
+    1. Open VS Code
+    2. Click Extensions icon in sidebar (⌘⇧X)
+    3. Search for "FlowDeck"
+    4. Click **Install** on FlowDeck by afterxleep
+    5. Reload VS Code when prompted
+  </Tab>
+  <Tab title="Via VSIX">
+    1. Download the `.vsix` file from here
+    2. In VS Code: `⌘⇧P` → "Install from VSIX"
+    3. Select the downloaded file
+  </Tab>
+</Tabs>
+
+### Verify Installation
+
+After installation, you should see:
+
+- FlowDeck icon in the activity bar (left sidebar)
+- "FlowDeck" in the Extensions list
+- FlowDeck commands in Command Palette (`⌘⇧P` → type "FlowDeck")
+

@@ -1,0 +1,62 @@
+---
+title: "Test Manager"
+description: "Run and manage tests for your Apple projects"
+---
+
+FlowDeck provides comprehensive support for running and managing tests for your Apple projects directly within VS Code, with full integration into the VSCode Test Explorer.
+
+## Testing Features
+
+- **VSCode Test Explorer Integration** - Browse and run tests from the Test Explorer sidebar
+- **Test Discovery** - Automatic discovery and hierarchical display of test targets, classes, and methods
+- **Click-to-Navigate** - Click on test results to jump directly to test source code
+- **Real-time Results** - Live test execution status and detailed output
+- **Flexible Test Execution** - Run individual tests, test classes, or entire test suites
+- **Scheme Selection** - Select specific test schemes
+- **Configuration Selection** - Configure testing environment
+
+## Getting Started
+
+1. Open your iOS/macOS project in VS Code
+2. Open the VSCode Test Explorer sidebar (Testing icon in the Activity Bar)
+4. FlowDeck will automatically discover your tests and display them hierarchically
+5. Click on any test to run it, or use FlowDeck commands for batch operations
+
+## VSCode Test Explorer Integration
+
+FlowDeck integrates seamlessly with VSCode's built-in Test Explorer, providing:
+
+### Test Discovery
+- **Automatic Discovery**: Tests are discovered automatically when you open a project
+- **Background Refresh**: Test structure updates in the background when schemes change
+- **Hierarchical Display**: Tests are organized by target → class → method structure
+
+### Test Execution
+- **Individual Tests**: Click the play button next to any test method
+- **Test Classes**: Run all tests in a class by clicking the class play button
+- **Test Targets**: Run entire test suites by clicking the target play button
+- **Real-time Updates**: Test status updates live during execution
+
+### Navigation
+- **Click to Source**: Click on any test name to navigate directly to the source code
+- **Result Navigation**: Click on test results to jump to the test implementation
+- **Error Navigation**: Failed tests show detailed error information with source links
+
+
+### Building for Testing
+
+To build your application for testing:
+
+```
+FlowDeck: Build for Testing
+```
+
+This will compile your application with test targets but won't execute the tests.
+
+### Running Tests Without Building
+
+If you've already built your application, you can run tests without rebuilding:
+
+```
+FlowDeck: Test Without Building
+```

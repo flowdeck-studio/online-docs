@@ -1,0 +1,60 @@
+---
+title: "Debugging"
+description: "Debug iOS and macOS Application"
+---
+
+FlowDeck integrates with LLDB-DAP to provide a powerful debugging experience for Swift applications directly within VS Code, offering features comparable to Xcode's debugging capabilities.
+
+## Debugging Features
+
+- **Breakpoint Management** - Set, disable, and manage breakpoints
+- **Variable Inspection** - Examine variable values during execution
+- \*\*Call Stack - \*\*Explore Threads and the entire app call stack.
+- **Console Output** - View application logs during debugging (OSLog)
+- **Step Controls** - Step over, into, and out of functions
+- **Expression Evaluation** - Evaluate Swift expressions in context
+
+## Start the Debugger
+
+1. Open your iOS project in VS Code
+2. Set breakpoints by clicking in the gutter next to line numbers
+3. Choose your Scheme and Target (simulator or device)
+4. Press `F5`
+5. Select `FlowDeck (LLDB)` from the list.
+
+### Automatic Launch Configuration Setup (Advanced)
+
+VSCode build configurations are defined ways to compile, run, and debug your code. They're specified through JSON files in the `.vscode` folder and tell VSCode how to execute build tasks for your project.
+
+You can configure VSCode launch configurations via a `.vscode/launch.json`file.
+
+1. Go to VSCode `Debug` panel and click `Create a launch.json file`
+2. Select FlowDeck (LLDB) from the list
+3. A new file will be automatically created for you with default Build and Run Settings
+
+This means you can start debugging immediately without any manual actions. The automatic configuration includes:
+
+- Proper LLDB adapter settings
+- Pre-launch task integration
+- Optimized presentation settings
+- Environment variable support
+
+Example `.vscode/launch.json`file
+
+```javascript
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "flowdeck-lldb",
+            "request": "attach",
+            "name": "FlowDeck: Build and Run (Debug)",
+            "preLaunchTask": "flowdeck: launch",
+            "presentation": {
+                "reveal": "never"
+            }
+        }
+    ]
+}
+```
