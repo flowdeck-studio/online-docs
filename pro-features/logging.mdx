@@ -1,18 +1,20 @@
 ---
 title: "OSLog Integration"
-description: "Stream and filter logs directly in VS Code"
+description: "Stream and filter simulator logs in VS Code"
 ---
 
-FlowDeck provides powerful OSLog integration that streams logs from simulators and devices directly within VS Code, eliminating the need to switch between your editor and Console.app.
+FlowDeck provides OSLog integration that streams logs from iOS simulators directly within VS Code through a dedicated log viewer panel.
+
+<Warning>
+  OSLog streaming is currently only available for simulators. Physical device logs must be viewed using Console.app.
+</Warning>
 
 ## Features
 
-- **Real-time Log Streaming** - View logs as they happen during app execution
-- **Advanced Filtering** - Filter by log level, subsystem, category, or search text
-- **Color-coded Output** - Different log levels displayed with distinct colors for quick scanning
-- **Integrated Console** - Logs appear in VS Code's output panel alongside your code
-- **Performance Optimized** - Minimal impact on simulator and app performance
-- **Export Capabilities** - Save filtered logs for later analysis
+- **Real-time Log Streaming** - View simulator logs as they happen during app execution
+- **Log Panel** - Dedicated webview panel for viewing and filtering logs
+- **Filtered Output** - Automatically filters to show only your app's logs
+- **Integration with Debug Sessions** - Logs automatically start streaming when debugging
 
 ## Getting Started
 
@@ -20,44 +22,29 @@ FlowDeck provides powerful OSLog integration that streams logs from simulators a
   <Step title="Open your project">
     Open your iOS/macOS project in VS Code with FlowDeck
   </Step>
-  <Step title="Start your app">
-    Build and run your app on a simulator or device
+  <Step title="Select a simulator">
+    Choose a simulator as your build destination
+  </Step>
+  <Step title="Start debugging">
+    Launch your app with debugging (F5)
   </Step>
   <Step title="View logs">
-    Open the Output panel and select **FlowDeck - OSLog** from the dropdown
-  </Step>
-  <Step title="Filter as needed">
-    Use the filter controls to focus on specific log messages
+    Logs automatically appear in the FlowDeck Logs panel
   </Step>
 </Steps>
 
-## Log Levels
+## How It Works
 
-FlowDeck displays all standard OSLog levels with color coding:
+When you start a debug session on a simulator, FlowDeck:
 
-- 🔴 **Error** - Critical errors requiring immediate attention
-- 🟠 **Fault** - System-level failures
-- 🟡 **Default** - Standard log messages
-- 🔵 **Info** - Informational messages
-- ⚪ **Debug** - Detailed debugging information
-
-## Filtering Options
-
-### By Log Level
-Select which log levels to display using the level selector in the FlowDeck panel.
-
-### By Subsystem
-Filter logs by your app's subsystem to focus on specific components:
-```swift
-Logger(subsystem: "com.yourapp.networking", category: "API")
-```
-
-### By Search Text
-Use the search field to filter logs containing specific text or patterns.
+1. Detects your app name and simulator ID
+2. Runs `xcrun simctl spawn` with `log stream` to capture logs
+3. Filters logs using predicates like `processImagePath CONTAINS "YourApp"`
+4. Displays filtered logs in the FlowDeck Logs panel
 
 ## Using OSLog in Your Code
 
-FlowDeck fully supports Apple's unified logging system. Here's how to use it effectively:
+FlowDeck captures logs from Apple's unified logging system:
 
 ```swift
 import os
@@ -71,30 +58,40 @@ logger.info("Info: User tapped button")
 logger.error("Error: Failed to load data")
 ```
 
-<Tip>
-  Use structured logging for better filtering and analysis:
-  ```swift
-  logger.info("User \(userID, privacy: .private) completed action \(action)")
-  ```
-</Tip>
-
 ## Physical Device Logging
 
-When working with physical devices, FlowDeck provides a convenient link to open Console.app with pre-configured filters for your app.
+When debugging on physical devices, FlowDeck cannot stream logs directly due to Apple's security restrictions.
 
 <Note>
-  Due to Apple's security restrictions, physical device logs must be viewed through Console.app. FlowDeck makes this seamless by automatically configuring the correct filters.
+  For physical devices, FlowDeck provides a button to open Console.app where you can manually configure filters to view your device logs.
 </Note>
 
-## Performance Tips
+### Using Console.app for Device Logs
 
-- Use appropriate log levels to reduce noise
-- Disable verbose logging in production builds
-- Use subsystems and categories for better organization
-- Consider using signposts for performance analysis
+When debugging on a device:
+1. FlowDeck will show a notification with an option to open Console.app
+2. In Console.app, select your device from the sidebar
+3. Use the search field to filter by your app name
+4. Add predicates like `processImagePath CONTAINS "YourApp"` for better filtering
+
+## Limitations
+
+- **Simulator Only** - Real-time log streaming only works with simulators
+- **macOS Requirement** - Uses macOS-specific tools (`xcrun simctl`)
+- **Debug Sessions** - Log streaming is tied to debug sessions
+- **No Export** - The current implementation doesn't support log export
 
 ## Troubleshooting
 
-- **No logs appearing** - Ensure your app is using `os.log` or `Logger` APIs
-- **Too many logs** - Adjust the filter level or add specific subsystem filters
-- **Missing debug logs** - Check that your scheme's build configuration is set to Debug
+### No Logs Appearing
+- Ensure you're using a simulator, not a physical device
+- Check that your app is using `os.log` or `Logger` APIs
+- Verify the debug session started successfully
+
+### Too Many Logs
+- FlowDeck automatically filters to your app's process
+- Avoid logging at Debug level in production code
+
+### Device Logs Not Working
+- This is expected - use Console.app for physical devices
+- FlowDeck will show a notification with a button to open Console.app

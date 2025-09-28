@@ -30,7 +30,7 @@ Before deploying to a physical device, ensure:
 - Device is registered in your Apple Developer account
 - App's bundle identifier matches your provisioning profile
 - Deployment target is compatible with your device's iOS version
-- Device is running iOS 17 or later
+- Device is accessible via Xcode (any iOS version supported)
 
 ## Supported Devices
 
@@ -53,3 +53,15 @@ Select a connected device as your build destination:
 <Tip>
   You can also right-click the device in FlowDeck's devices panel and select **Select destination**
 </Tip>
+
+## Debugging Method
+
+FlowDeck automatically selects the best debugging method based on your device:
+
+- **iOS 17+** - Uses modern `devicectl` for faster and more reliable debugging
+- **iOS 16 and below** - Falls back to `ios-deploy` for compatibility
+- **Auto mode** - FlowDeck automatically detects and uses the appropriate method
+
+<Note>
+  You can configure the debugging method in settings if needed, but auto mode works best for most users.
+</Note>
