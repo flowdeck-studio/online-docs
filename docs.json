@@ -49,7 +49,7 @@
     "groups": [
       {
         "group": "FlowDeck",
-        "pages": ["introduction", "install-and-setup", "the-basics"]
+        "pages": ["introduction", "install-and-setup", "core-features", "pro-features"]
       },
       {
         "group": "Core Features",
@@ -57,7 +57,11 @@
       },
       {
         "group": "✨ Pro Features",
-        "pages": ["pro-features/index", "pro-features/build-optimizer", "pro-features/testing", "pro-features/logging"]
+        "pages": ["pro-features/build-optimizer", "pro-features/testing", "pro-features/logging"]
+      },
+      {
+        "group": "Advanced Configuration",
+        "pages": ["advanced/commands", "advanced/sourcekit-lsp", "advanced/tasks-json", "advanced/launch-json"]
       }
     ]
   },

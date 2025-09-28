@@ -1,0 +1,182 @@
+---
+title: "Debug Configuration (launch.json)"
+description: "Configure debugging sessions with VS Code's launch.json"
+---
+
+VS Code launch configurations define how to compile, run, and debug your code. They're specified through JSON files in the `.vscode` folder and provide powerful debugging capabilities for your iOS/macOS projects.
+
+## Creating a Debug Configuration
+
+<Steps>
+  <Step title="Open Debug panel">
+    Click the Debug icon in the Activity Bar or press `⌘⇧D`
+  </Step>
+  <Step title="Create launch.json">
+    Click **Create a launch.json file** in the Debug panel
+  </Step>
+  <Step title="Select FlowDeck">
+    Choose **FlowDeck (LLDB)** from the list
+  </Step>
+  <Step title="Configuration created">
+    A new `.vscode/launch.json` file is created with default settings
+  </Step>
+</Steps>
+
+## Basic Configuration
+
+Here's the basic `launch.json` configuration for FlowDeck:
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "flowdeck-lldb",
+      "request": "attach",
+      "name": "FlowDeck: Build and Run (Debug)",
+      "preLaunchTask": "flowdeck: launch",
+      "presentation": {
+        "reveal": "never"
+      }
+    }
+  ]
+}
+```
+
+## Configuration Properties
+
+### Essential Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `type` | string | Must be `flowdeck-lldb` for FlowDeck debugging |
+| `request` | string | Use `attach` to attach to running process |
+| `name` | string | Display name in the Debug dropdown |
+| `preLaunchTask` | string | Task to run before debugging (usually build) |
+
+### Presentation Options
+
+Control how the debug session appears:
+
+```json
+{
+  "presentation": {
+    "reveal": "always",    // or "never", "silent"
+    "panel": "new",        // or "shared", "dedicated"
+    "focus": true          // Focus the debug console
+  }
+}
+```
+
+## Multiple Debug Configurations
+
+Define different debug configurations for various scenarios:
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "flowdeck-lldb",
+      "request": "attach",
+      "name": "Debug on Simulator",
+      "preLaunchTask": "flowdeck: launch",
+      "presentation": {
+        "reveal": "never"
+      }
+    },
+    {
+      "type": "flowdeck-lldb",
+      "request": "attach",
+      "name": "Debug on Device",
+      "preLaunchTask": "flowdeck: launch-device",
+      "presentation": {
+        "reveal": "always",
+        "focus": true
+      }
+    },
+    {
+      "type": "flowdeck-lldb",
+      "request": "attach",
+      "name": "Attach to Running App",
+      "processId": "${command:pickProcess}"
+    }
+  ]
+}
+```
+
+## Environment Variables
+
+Pass environment variables to your debug session:
+
+```json
+{
+  "type": "flowdeck-lldb",
+  "request": "attach",
+  "name": "Debug with Environment",
+  "preLaunchTask": "flowdeck: launch",
+  "env": {
+    "API_ENDPOINT": "https://debug.api.example.com",
+    "DEBUG_MODE": "true",
+    "LOG_LEVEL": "verbose"
+  }
+}
+```
+
+## Launch vs Attach
+
+FlowDeck supports two request types:
+
+### Attach Mode (Recommended)
+```json
+{
+  "request": "attach",
+  "preLaunchTask": "flowdeck: launch"
+}
+```
+- Builds and launches the app, then attaches debugger
+- Most common and reliable method
+
+### Custom Attach
+```json
+{
+  "request": "attach",
+  "processId": "${command:pickProcess}"
+}
+```
+- Attaches to an already running process
+- Useful for debugging app extensions or background processes
+
+## Debugging with Breakpoints
+
+### Conditional Breakpoints
+Right-click on a breakpoint to add conditions:
+- **Expression** - Break when expression is true
+- **Hit Count** - Break after N hits
+- **Log Message** - Log without stopping
+
+### Exception Breakpoints
+Configure in the Breakpoints panel:
+- **All Exceptions** - Break on any exception
+- **Uncaught Exceptions** - Break only on unhandled exceptions
+- **Swift Errors** - Break on Swift error throws
+
+## Tips and Best Practices
+
+- **Pre-launch Tasks** - Always specify a `preLaunchTask` to ensure fresh builds
+- **Multiple Configurations** - Create separate configs for simulator vs device debugging
+- **Environment Variables** - Use different API endpoints for debug builds
+- **Presentation Options** - Hide output for cleaner debugging experience
+- **Compound Configurations** - Chain multiple debug sessions together
+
+## Troubleshooting
+
+### Common Issues
+
+- **Debugger not attaching** - Ensure the app is built with debug symbols
+- **Breakpoints not hitting** - Check that optimization is disabled in debug builds
+- **Variables not visible** - Make sure you're using Debug build configuration
+
+<Info>
+  For more information about VS Code debugging, see the [official debugging documentation](https://code.visualstudio.com/docs/editor/debugging).
+</Info>

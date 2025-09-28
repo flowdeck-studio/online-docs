@@ -1,0 +1,159 @@
+---
+title: "Command Reference"
+description: "Complete list of FlowDeck commands available in VS Code"
+---
+
+FlowDeck provides a comprehensive set of commands accessible through the Command Palette (`⌘⇧P`). Here's a complete reference of all available commands.
+
+## Getting Started
+
+| Command | Description |
+|---------|-------------|
+| `FlowDeck: Show Welcome Page` | Open the FlowDeck welcome page with quick links |
+| `FlowDeck: Select Xcode workspace` | Choose workspace containing your Xcode project |
+
+## Build Commands
+
+| Command | Description |
+|---------|-------------|
+| `FlowDeck: Build` | Build the current scheme |
+| `FlowDeck: Build & Run` | Build and launch the app |
+| `FlowDeck: Run Without Building` | Launch without rebuilding |
+| `FlowDeck: Clean` | Clean build artifacts |
+| `FlowDeck: Test` | Run tests for current scheme |
+| `FlowDeck: Build for testing` | Build test targets without running |
+| `FlowDeck: Resolve dependencies` | Resolve package dependencies |
+| `FlowDeck: Select build configuration` | Choose Debug/Release configuration |
+| `FlowDeck: Set scheme` | Select the active build scheme |
+| `FlowDeck: Diagnose Build setup` | Troubleshoot build configuration issues |
+
+## XcodeGen Commands
+
+| Command | Description |
+|---------|-------------|
+| `FlowDeck: Create New Project` | Create a new Xcode project from templates |
+| `FlowDeck: Refresh Project` | Refresh XcodeGen project configuration |
+
+## Simulator Commands
+
+| Command | Description |
+|---------|-------------|
+| `FlowDeck: Open simulator` | Launch the Simulator app |
+| `FlowDeck: Start simulator` | Boot selected simulator |
+| `FlowDeck: Stop simulator` | Shutdown running simulator |
+| `FlowDeck: Remove simulator cache` | Clear simulator caches |
+| `FlowDeck: Refresh simulators list` | Update available simulators |
+
+## Device & Destination Commands
+
+| Command | Description |
+|---------|-------------|
+| `FlowDeck: Select destination` | Choose simulator or device as build target |
+| `FlowDeck: Select destination for testing` | Choose test destination |
+| `FlowDeck: Remove recent destination` | Clear from recent destinations list |
+| `FlowDeck: Refresh devices list` | Update connected devices |
+
+## Testing Commands
+
+| Command | Description |
+|---------|-------------|
+| `FlowDeck: Select configuration for testing` | Choose test configuration |
+| `FlowDeck: Diagnose Test Discovery` | Troubleshoot test discovery issues |
+| `FlowDeck: Open Test File` | Open source file for selected test |
+
+## Build Optimizer Commands
+
+| Command | Description |
+|---------|-------------|
+| `FlowDeck: Install Build Optimizer` | Install the build optimization helper |
+| `FlowDeck: Uninstall Build Optimizer` | Remove build optimizer |
+| `FlowDeck: Check Xcode Optimizer Status` | Verify optimizer installation |
+| `FlowDeck: Diagnose Build Optimizer` | Run diagnostic tests |
+| `FlowDeck: Show Build Optimizer Logs` | View optimizer logs |
+| `FlowDeck: Repair Build Optimizer Installation` | Fix installation issues |
+
+## LSP & Indexing Commands
+
+| Command | Description |
+|---------|-------------|
+| `FlowDeck: Toggle Background LSP Builds` | Enable/disable auto-indexing |
+| `FlowDeck: Show Background LSP Build Status` | Display indexing status |
+| `FlowDeck: Show Compile Command for Current File` | View build command |
+| `FlowDeck: Quick Build for LSP Update` | Fast rebuild for code intelligence |
+
+## System & Troubleshooting Commands
+
+| Command | Description |
+|---------|-------------|
+| `FlowDeck: Reset Extension Cache` | Clear FlowDeck's cached data |
+| `FlowDeck: Open Xcode` | Launch Xcode app |
+| `FlowDeck: Reinstall All Tools` | Reinstall FlowDeck dependencies |
+| `FlowDeck: Test Error Reporting` | Test error reporting system |
+
+## Debugging Commands
+
+| Command | Description |
+|---------|-------------|
+| `FlowDeck: Get app path for debugging` | Get built app path for LLDB |
+
+## View Commands
+
+| Command | Description |
+|---------|-------------|
+| `FlowDeck: Refresh view` | Refresh the FlowDeck panel |
+
+## Default Keyboard Shortcuts
+
+FlowDeck doesn't define default keyboard shortcuts for most commands to avoid conflicts. However, you can easily add your own.
+
+### Recommended Shortcuts
+
+```json
+{
+  "key": "cmd+b",
+  "command": "flowdeck.build.build"
+},
+{
+  "key": "cmd+r",
+  "command": "flowdeck.build.launch"
+},
+{
+  "key": "cmd+shift+k",
+  "command": "flowdeck.build.clean"
+},
+{
+  "key": "cmd+u",
+  "command": "flowdeck.build.test"
+}
+```
+
+## Using Commands
+
+### Command Palette
+1. Press `⌘⇧P` to open the Command Palette
+2. Type "FlowDeck" to see all available commands
+3. Select the command you want to run
+
+### FlowDeck Panel
+The FlowDeck panel in the Activity Bar provides quick access to:
+- Build and run buttons
+- Scheme selection
+- Destination management
+- Test explorer integration
+
+### Context Menus
+Right-click actions are available in:
+- FlowDeck panel items
+- Editor context menu (when in Swift files)
+- Explorer file context menu
+
+## Tips
+
+- **Fuzzy Search** - Type partial command names in the Command Palette
+- **Recent Commands** - Recently used commands appear at the top
+- **Quick Access** - Pin frequently used commands to the Activity Bar
+- **Custom Keybindings** - Assign shortcuts via Keyboard Shortcuts (`⌘K ⌘S`)
+
+<Note>
+  Some commands may not be available depending on your project type, selected device, or current context.
+</Note>

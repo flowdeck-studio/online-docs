@@ -1,0 +1,145 @@
+---
+title: "Build Tasks (tasks.json)"
+description: "Configure custom build tasks with VS Code's tasks.json"
+---
+
+VS Code build configurations are defined ways to compile, run, and debug your code. They're specified through JSON files in the `.vscode` folder and tell VS Code how to execute build tasks for your project.
+
+## Creating Your First Build Task
+
+You can configure VS Code to run external tasks via `.vscode/tasks.json`. FlowDeck supports all build operations to be configured this way.
+
+<Steps>
+  <Step title="Open Command Palette">
+    Press `⌘⇧B` to open the build task selector
+  </Step>
+  <Step title="Select default task">
+    Choose the task you want to run by default
+  </Step>
+  <Step title="Configuration created">
+    FlowDeck will create a `.vscode/tasks.json` with the selected configuration
+  </Step>
+  <Step title="Customize as needed">
+    Add multiple tasks, assign different shortcuts, or run specific ones by default
+  </Step>
+</Steps>
+
+## Basic Configuration
+
+Here's a basic `tasks.json` configuration for FlowDeck:
+
+```json
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "flowdeck",
+      "action": "build",
+      "problemMatcher": [
+        "$flowdeck-watch",
+        "$flowdeck-xcodebuild-default",
+        "$flowdeck-xcbeautify-errors",
+        "$flowdeck-xcbeautify-warnings"
+      ],
+      "label": "flowdeck: build",
+      "detail": "Build the app",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
+```
+
+## Available Task Actions
+
+FlowDeck supports the following actions in tasks:
+
+| Action | Description |
+|--------|-------------|
+| `build` | Build the project |
+| `build-and-run` | Build and run the project |
+| `run` | Run without building |
+| `clean` | Clean build artifacts |
+| `test` | Run tests |
+| `build-for-testing` | Build test targets |
+
+## Multiple Build Configurations
+
+You can define multiple build tasks for different scenarios:
+
+```json
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "flowdeck",
+      "action": "build",
+      "label": "Debug Build",
+      "detail": "Build with debug configuration",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "type": "flowdeck",
+      "action": "build",
+      "label": "Release Build",
+      "detail": "Build with release configuration",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "type": "flowdeck",
+      "action": "clean",
+      "label": "Clean Build",
+      "detail": "Clean all build artifacts"
+    }
+  ]
+}
+```
+
+## Problem Matchers
+
+FlowDeck includes several problem matchers to parse build output:
+
+- `$flowdeck-watch` - Monitors for build system changes
+- `$flowdeck-xcodebuild-default` - Parses standard Xcode build errors
+- `$flowdeck-xcbeautify-errors` - Enhanced error formatting
+- `$flowdeck-xcbeautify-warnings` - Enhanced warning formatting
+
+## Task Groups
+
+You can organize tasks into groups for easier access:
+
+```json
+{
+  "group": {
+    "kind": "build",     // or "test"
+    "isDefault": true    // Makes this the default for ⌘⇧B
+  }
+}
+```
+
+## Keyboard Shortcuts
+
+After creating tasks, you can assign keyboard shortcuts:
+
+1. Open **Keyboard Shortcuts** (`⌘K ⌘S`)
+2. Search for "Tasks: Run Task"
+3. Add a keybinding for your specific task
+
+## Tips and Best Practices
+
+- **Default Task** - Set one task as default for quick access with `⌘⇧B`
+- **Presentation Options** - Control how output is displayed
+- **Problem Matchers** - Use appropriate matchers for better error detection
+- **Task Dependencies** - Chain tasks using the `dependsOn` property
+
+<Info>
+  For more information about VS Code tasks, see the [official VS Code documentation](https://code.visualstudio.com/docs/editor/tasks).
+</Info>

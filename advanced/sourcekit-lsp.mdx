@@ -1,0 +1,164 @@
+---
+title: "SourceKit LSP Background Builds"
+description: "Automatic background builds for up-to-date code intelligence"
+---
+
+FlowDeck includes an intelligent background build feature that automatically builds your project incrementally to keep SourceKit LSP's code intelligence up-to-date. This ensures you always have accurate autocomplete, symbol navigation, and error detection without manual intervention.
+
+## How It Works
+
+When enabled, FlowDeck:
+
+1. **Monitors file changes** - Watches Swift and Objective-C source files for modifications
+2. **Debounces changes** - Waits for a configurable delay to batch multiple changes
+3. **Runs incremental builds** - Performs low-priority background builds with reduced CPU usage
+4. **Updates code index** - Automatically refreshes SourceKit LSP's understanding of your code
+5. **Parses build logs** - Updates `.compile` files for accurate LSP integration
+
+<Note>
+  Background builds run with reduced CPU priority and limited parallelism to minimize impact on your system performance.
+</Note>
+
+## Configuration
+
+Access background build settings through:
+
+**Settings** → **Extensions** → **FlowDeck** → **Language Server Protocol (Experimental)**
+
+### Available Settings
+
+| Setting | Type | Default | Description |
+|---------|------|---------|-------------|
+| `flowdeck.lsp.backgroundBuilds.enabled` | boolean | `true` | Enable/disable automatic background builds |
+| `flowdeck.lsp.backgroundBuilds.delay` | number | `3000` | Delay in milliseconds after file changes (1000-10000) |
+| `flowdeck.lsp.backgroundBuilds.jobLimit` | number | `4` | Number of parallel build jobs (1-16) |
+| `flowdeck.lsp.backgroundBuilds.nicePriority` | number | `15` | Process priority (0-19, higher = lower priority) |
+| `flowdeck.lsp.backgroundBuilds.batteryAware` | boolean | `true` | Reduce resources when on battery power |
+| `flowdeck.lsp.backgroundBuilds.skipOnSyntaxErrors` | boolean | `true` | Skip builds when files have syntax errors |
+| `flowdeck.lsp.xcodebuildserver.autogenerate` | boolean | `true` | Auto-regenerate build server config on scheme changes |
+
+### Performance Tuning
+
+#### For Best Code Intelligence (Higher CPU Usage)
+```json
+{
+  "flowdeck.lsp.backgroundBuilds.enabled": true,
+  "flowdeck.lsp.backgroundBuilds.delay": 1000,
+  "flowdeck.lsp.backgroundBuilds.jobLimit": 8,
+  "flowdeck.lsp.backgroundBuilds.nicePriority": 10
+}
+```
+
+#### Balanced Performance (Default)
+```json
+{
+  "flowdeck.lsp.backgroundBuilds.enabled": true,
+  "flowdeck.lsp.backgroundBuilds.delay": 3000,
+  "flowdeck.lsp.backgroundBuilds.jobLimit": 4,
+  "flowdeck.lsp.backgroundBuilds.nicePriority": 15
+}
+```
+
+#### Low Resource Usage
+```json
+{
+  "flowdeck.lsp.backgroundBuilds.enabled": true,
+  "flowdeck.lsp.backgroundBuilds.delay": 5000,
+  "flowdeck.lsp.backgroundBuilds.jobLimit": 2,
+  "flowdeck.lsp.backgroundBuilds.nicePriority": 19
+}
+```
+
+#### Manual Builds Only
+```json
+{
+  "flowdeck.lsp.backgroundBuilds.enabled": false
+}
+```
+
+## Battery-Aware Mode
+
+When `batteryAware` is enabled and your Mac is running on battery power:
+- Build priority automatically increases to 19 (lowest)
+- Job limit reduces to 2 parallel jobs
+- Helps conserve battery life during development
+
+## Understanding Build Priority
+
+The `nicePriority` setting controls how much CPU the background builds can use:
+
+- **0-9**: Higher priority than normal processes (not recommended)
+- **10-14**: Moderate priority
+- **15-19**: Low priority (recommended for background builds)
+- **19**: Lowest priority, yields to all other processes
+
+## Monitored File Types
+
+Background builds trigger for changes to:
+- `*.swift` - Swift source files
+- `*.h` - Header files
+- `*.m` - Objective-C source files
+- `*.mm` - Objective-C++ source files
+- `*.cpp`, `*.cc`, `*.c` - C/C++ source files
+- `*.hpp`, `*.hxx` - C++ header files
+
+Files in these directories are automatically ignored:
+- `/.build/` - Swift Package Manager build directory
+- `/DerivedData/` - Xcode derived data
+- `/build/` - Generic build directories
+
+## Related Commands
+
+| Command | Description |
+|---------|-------------|
+| `FlowDeck: Toggle Background LSP Builds` | Enable/disable background builds |
+| `FlowDeck: Show Background LSP Build Status` | Display current build status |
+| `FlowDeck: Update LSP Index for Current File` | Manually trigger indexing for current file |
+| `FlowDeck: Quick Build for LSP Update` | Perform a quick build to update code intelligence |
+
+## Xcode Build Server Integration
+
+FlowDeck automatically manages the `buildServer.json` configuration file that connects SourceKit LSP to the Xcode build system. When you change schemes or build configurations, FlowDeck:
+
+1. Detects the change
+2. Regenerates `buildServer.json`
+3. Updates build flags in `.compile` files
+4. SourceKit LSP automatically picks up the changes
+
+<Tip>
+  The deprecated setting `flowdeck.build.restartLSPServerOnBuild` is no longer needed as SourceKit LSP now automatically detects configuration changes.
+</Tip>
+
+## Troubleshooting
+
+### Background Builds Not Starting
+- Check that `flowdeck.lsp.backgroundBuilds.enabled` is `true`
+- Verify you have an active scheme selected
+- Ensure your project builds successfully manually first
+
+### High CPU Usage
+- Increase the `delay` setting to batch more changes
+- Reduce `jobLimit` to use fewer parallel jobs
+- Increase `nicePriority` to 18 or 19
+
+### Code Intelligence Not Updating
+- Check the Output panel for build errors
+- Ensure syntax errors are fixed (or disable `skipOnSyntaxErrors`)
+- Try a manual build with `FlowDeck: Build`
+
+### Battery Draining Quickly
+- Enable `batteryAware` mode
+- Increase `nicePriority` to 19
+- Consider disabling background builds on battery
+
+## Best Practices
+
+1. **Start with defaults** - The default settings work well for most projects
+2. **Adjust based on project size** - Larger projects benefit from longer delays
+3. **Monitor CPU usage** - Use Activity Monitor to ensure builds aren't impacting performance
+4. **Fix syntax errors quickly** - Background builds skip files with syntax errors by default
+5. **Use manual builds for major changes** - After big refactors, run a full manual build
+
+<Note>
+  Background builds require a successful initial build. Always ensure your project builds successfully before relying on automatic background builds.
+</Note>

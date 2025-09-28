@@ -1,44 +1,100 @@
 ---
 title: "OSLog Integration"
-description: "View and analyze device logs"
+description: "Stream and filter logs directly in VS Code"
 ---
 
-When debugging on physical iOS devices, FlowDeck integrates with macOS's built-in Console.app to view detailed logs from connected devices.
+FlowDeck provides powerful OSLog integration that streams logs from simulators and devices directly within VS Code, eliminating the need to switch between your editor and Console.app.
 
-## Viewing Device Logs
+## Features
+
+- **Real-time Log Streaming** - View logs as they happen during app execution
+- **Advanced Filtering** - Filter by log level, subsystem, category, or search text
+- **Color-coded Output** - Different log levels displayed with distinct colors for quick scanning
+- **Integrated Console** - Logs appear in VS Code's output panel alongside your code
+- **Performance Optimized** - Minimal impact on simulator and app performance
+- **Export Capabilities** - Save filtered logs for later analysis
+
+## Getting Started
 
 <Steps>
-  <Step title="Open Console.app">
-    Open Console.app from Applications/Utilities or use Spotlight search
+  <Step title="Open your project">
+    Open your iOS/macOS project in VS Code with FlowDeck
   </Step>
-  <Step title="Select your device">
-    In the sidebar, find your connected device under the **Devices** section
+  <Step title="Start your app">
+    Build and run your app on a simulator or device
   </Step>
-  <Step title="Filter logs">
-    Enter your app's main library name in the search/filter field to filter logs
+  <Step title="View logs">
+    Open the Output panel and select **FlowDeck - OSLog** from the dropdown
   </Step>
-  <Step title="Start streaming">
-    Click the **Start** button to begin streaming live logs
+  <Step title="Filter as needed">
+    Use the filter controls to focus on specific log messages
   </Step>
 </Steps>
 
+## Log Levels
+
+FlowDeck displays all standard OSLog levels with color coding:
+
+- 🔴 **Error** - Critical errors requiring immediate attention
+- 🟠 **Fault** - System-level failures
+- 🟡 **Default** - Standard log messages
+- 🔵 **Info** - Informational messages
+- ⚪ **Debug** - Detailed debugging information
+
+## Filtering Options
+
+### By Log Level
+Select which log levels to display using the level selector in the FlowDeck panel.
+
+### By Subsystem
+Filter logs by your app's subsystem to focus on specific components:
+```swift
+Logger(subsystem: "com.yourapp.networking", category: "API")
+```
+
+### By Search Text
+Use the search field to filter logs containing specific text or patterns.
+
+## Using OSLog in Your Code
+
+FlowDeck fully supports Apple's unified logging system. Here's how to use it effectively:
+
+```swift
+import os
+
+// Create a logger
+let logger = Logger(subsystem: "com.yourapp.main", category: "UI")
+
+// Log at different levels
+logger.debug("Debug: View will appear")
+logger.info("Info: User tapped button")
+logger.error("Error: Failed to load data")
+```
+
+<Tip>
+  Use structured logging for better filtering and analysis:
+  ```swift
+  logger.info("User \(userID, privacy: .private) completed action \(action)")
+  ```
+</Tip>
+
+## Physical Device Logging
+
+When working with physical devices, FlowDeck provides a convenient link to open Console.app with pre-configured filters for your app.
+
 <Note>
-  Console.app provides a powerful interface for viewing detailed device logs, system messages, and crash reports from your iOS devices.
+  Due to Apple's security restrictions, physical device logs must be viewed through Console.app. FlowDeck makes this seamless by automatically configuring the correct filters.
 </Note>
 
-## Best Practices
+## Performance Tips
 
-- Use predicate filters for specific results (e.g., `library contains "appname.dylib"`)
-- Select **Debug** or **Default** log level for more detailed information
-- Enable **Errors and Faults** and **Show Info Messages** for comprehensive logging
-- Save log snapshots for later analysis using **File** → **Save**
+- Use appropriate log levels to reduce noise
+- Disable verbose logging in production builds
+- Use subsystems and categories for better organization
+- Consider using signposts for performance analysis
 
 ## Troubleshooting
 
-- **Device not appearing** - Disconnect and reconnect your device
-- **Trust issues** - Ensure you've trusted the computer on your iOS device
-- **iOS 17+ devices** - Enable Developer Mode in Settings → Privacy & Security
-
-## Additional Resources
-
-For advanced Console.app usage, see [Apple's logging documentation](https://developer.apple.com/documentation/os/logging). 
+- **No logs appearing** - Ensure your app is using `os.log` or `Logger` APIs
+- **Too many logs** - Adjust the filter level or add specific subsystem filters
+- **Missing debug logs** - Check that your scheme's build configuration is set to Debug

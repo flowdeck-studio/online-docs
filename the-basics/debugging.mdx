@@ -31,39 +31,100 @@ FlowDeck integrates with LLDB-DAP to provide a powerful debugging experience for
   </Step>
 </Steps>
 
-## Advanced: Launch Configuration
+## Debugging Controls
 
-VS Code launch configurations define how to compile, run, and debug your code. They're specified through JSON files in the `.vscode` folder.
+### Toolbar Actions
+- **Continue** (`F5`) - Resume execution
+- **Step Over** (`F10`) - Execute current line
+- **Step Into** (`F11`) - Enter function calls
+- **Step Out** (`⇧F11`) - Exit current function
+- **Restart** (`⇧⌘F5`) - Restart debug session
+- **Stop** (`⇧F5`) - End debugging
 
-You can configure VS Code launch configurations via `.vscode/launch.json`:
+### Breakpoint Types
 
-1. Go to the VS Code Debug panel and click **Create a launch.json file**
-2. Select **FlowDeck (LLDB)** from the list
-3. A new file will be automatically created with default build and run settings
+#### Standard Breakpoints
+Click in the gutter or press `F9` on any line.
 
-The automatic configuration includes:
+#### Conditional Breakpoints
+Right-click a breakpoint and select **Edit Breakpoint**:
+- **Expression** - Break when condition is true
+- **Hit Count** - Break after N hits
+- **Log Message** - Log without stopping execution
 
-- Proper LLDB adapter settings
-- Pre-launch task integration
-- Optimized presentation settings
-- Environment variable support
+#### Exception Breakpoints
+In the Breakpoints panel:
+- Add **All Exceptions** breakpoint
+- Add **Swift Error** breakpoint
+- Add **Objective-C Exception** breakpoint
 
-### Example launch.json
+## Debug Console
 
-```javascript
-{
-    "version": "0.2.0",
-    "configurations": [
-        
-        {
-            "type": "flowdeck-lldb",
-            "request": "attach",
-            "name": "FlowDeck: Build and Run (Debug)",
-            "preLaunchTask": "flowdeck: launch",
-            "presentation": {
-                "reveal": "never"
-            }
-        }
-    ]
-}
+The debug console allows you to:
+- View application output
+- Execute LLDB commands (prefix with `-exec`)
+- Evaluate Swift expressions
+- Inspect variables with `po` command
+
+### Useful LLDB Commands
+
+```lldb
+po variableName           // Print object description
+p variableName            // Print raw value
+bt                        // Show backtrace
+frame variable           // Show all local variables
+thread list              // List all threads
 ```
+
+## Variables Panel
+
+The Variables panel shows:
+- **Locals** - Variables in current scope
+- **Globals** - Global variables
+- **Statics** - Static variables
+
+Right-click variables to:
+- Copy value
+- Copy as expression
+- Add to watch
+- Set value
+
+## Watch Expressions
+
+Add expressions to monitor:
+1. Click **+** in Watch panel
+2. Enter Swift expression
+3. View updated values at each breakpoint
+
+## Advanced Configuration
+
+For custom debug configurations and launch options, see [Debug Configuration](/advanced/launch-json).
+
+<Tip>
+  Use the **Debug Console** tab during debugging to execute LLDB commands directly. Prefix commands with `-exec` for raw LLDB access.
+</Tip>
+
+## Tips for Effective Debugging
+
+- **Use conditional breakpoints** to avoid stopping unnecessarily
+- **Watch key variables** to track state changes
+- **Check the call stack** to understand execution flow
+- **Use log points** for non-intrusive debugging
+- **Leverage LLDB commands** for advanced inspection
+
+## Troubleshooting
+
+### Breakpoints Not Hit
+- Ensure Debug build configuration
+- Check optimization settings are disabled
+- Verify source maps are generated
+
+### Variables Not Visible
+- Build with debug symbols enabled
+- Check you're in Debug configuration
+- Ensure optimization is turned off
+
+### Debugger Won't Attach
+- Restart VS Code and simulator
+- Clean build folder
+- Check for conflicting debugger instances

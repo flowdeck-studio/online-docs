@@ -7,7 +7,7 @@ description: "Build and run your apps from VS Code"
 
 Open the FlowDeck panel → Schemes and use the scheme actions:
 
-- <Icon icon="wrench" /> **Build** - Compile your app
+- <Icon icon="hammer" /> **Build** - Compile your app
 - <Icon icon="play" /> **Build and Run** - Compile and launch your app
 
 ![building.png](../images/scheme.png)
@@ -19,41 +19,26 @@ Build commands are also available via the Command Palette:
 - `⌘⇧P` → `FlowDeck: Build`
 - `⌘⇧P` → `FlowDeck: Build and Run`
 
-## Advanced: Build Configuration Tasks
+## Keyboard Shortcuts
 
-VS Code build configurations are defined ways to compile, run, and debug your code. They're specified through JSON files in the `.vscode` folder and tell VS Code how to execute build tasks for your project.
+FlowDeck provides default keyboard shortcuts for common build operations:
 
-You can configure VS Code to run external tasks via `.vscode/tasks.json`. FlowDeck supports all build operations to be configured this way.
+- **Build**: `⌘B`
+- **Build and Run**: `⌘R`
+- **Clean Build**: `⌘⇧K`
 
-1. To configure your first build task, press `⌘⇧B`
-2. Select the task you want to run by default
-3. FlowDeck will create a `.vscode/tasks.json` with the selected configuration
-4. Once created, you can add multiple tasks, assign different shortcuts, or run specific ones by default
+## Build Configurations
 
-For more information about tasks, see the [VS Code documentation](https://code.visualstudio.com/docs/debugtest/tasks).
+Select different build configurations (Debug/Release) using:
 
-### Example tasks.json
+1. Click the configuration selector in the status bar
+2. Use `FlowDeck: Select Configuration` command
+3. Choose Debug or Release mode
 
-```javascript
-{
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"type": "flowdeck",
-			"action": "build",
-			"problemMatcher": [
-				"$flowdeck-watch",
-				"$flowdeck-xcodebuild-default",
-				"$flowdeck-xcbeautify-errors",
-				"$flowdeck-xcbeautify-warnings"
-			],
-			"label": "flowdeck: build",
-			"detail": "Build the app",
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			}
-		}
-	]
-}
-```
+## Advanced Configuration
+
+For advanced build configurations and custom build tasks, see [Build Tasks Configuration](/advanced/tasks-json).
+
+<Tip>
+  Press `⌘⇧B` to quickly set up your first build task. FlowDeck will create the necessary configuration files automatically.
+</Tip>
