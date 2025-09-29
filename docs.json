@@ -2,8 +2,8 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "FlowDeck",
-  "logo": "https://getflowdeck.com/logo.png",
-  "favicon": "https://getflowdeck.com/logo.png",
+  "logo": "https://flowdeck.studio/logo.png",
+  "favicon": "https://flowdeck.studio/logo.png",
   "colors": {
     "primary": "#245ADF",
     "light": "#5AC8FA",
@@ -13,38 +13,11 @@
     "primary": {
       "type": "button",
       "label": "Get FlowDeck",
-      "href": "https://marketplace.visualstudio.com/items?itemName=afterxleep.FlowDeck"
+      "href": "https://flowdeck.studio/"
     }
   },
   "topbar": {
-    "links": [
-      {
-        "name": "Support",
-        "url": "https://github.com/afterxleep/flowdeck/issues"
-      },
-      {
-        "name": "GitHub",
-        "url": "https://github.com/afterxleep/flowdeck"
-      }
-    ]
   },
-  "anchors": [
-    {
-      "name": "GitHub",
-      "icon": "github",
-      "url": "https://github.com/afterxleep/flowdeck"
-    },
-    {
-      "name": "VS Code Marketplace",
-      "icon": "code",
-      "url": "https://marketplace.visualstudio.com/items?itemName=afterxleep.FlowDeck"
-    },
-    {
-      "name": "Changelog",
-      "icon": "list",
-      "url": "/changelog"
-    }
-  ],
   "navigation": {
     "groups": [
       {
