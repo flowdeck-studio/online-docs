@@ -1,0 +1,72 @@
+---
+title: "XCode-style shortcuts"
+description: "Use your favorite XCode shortcuts for build, navigation, debugging and more"
+---
+
+## Setup Instructions
+
+1. Open VSCode Command Palette: `Cmd+Shift+P`
+2. Search for "Setup Xcode-style Keyboard Shortcuts"
+
+You can also enable or disable this via FlowDeck Settings in `Extensions > FlowDeck > System Configuration`
+
+## Keyboard Shortcuts
+
+### 🔨 Build & Run
+
+| Shortcut      | Action               | VSCode Command                          |
+| ------------- | -------------------- | --------------------------------------- |
+| `Cmd+R`       | Build & Run          | `extension.flowdeck.buildAndRun`        |
+| `Cmd+B`       | Build                | `extension.flowdeck.build`              |
+| `Cmd+U`       | Test                 | `extension.flowdeck.test`               |
+| `Cmd+Shift+K` | Clean                | `extension.flowdeck.clean`              |
+| `Cmd+.`       | Cancel Task          | `workbench.action.tasks.terminate`      |
+| `Ctrl+Cmd+R`  | Run Without Building | `extension.flowdeck.runWithoutBuilding` |
+
+### 🧭 Navigation
+
+| Shortcut         | Action                       | VSCode Command                                    |
+| ---------------- | ---------------------------- | ------------------------------------------------- |
+| `Cmd+Shift+O`    | Quick Open (Go to File)      | `workbench.action.quickOpen`                      |
+| `Cmd+Shift+J`    | Show Active File in Explorer | `workbench.files.action.showActiveFileInExplorer` |
+| `Ctrl+Cmd+J`     | Jump to Definition           | `editor.action.revealDefinition`                  |
+| `Ctrl+Cmd+Left`  | Navigate Back                | `workbench.action.navigateBack`                   |
+| `Ctrl+Cmd+Right` | Navigate Forward             | `workbench.action.navigateForward`                |
+| `Cmd+Option+L`   | Go to Line                   | `workbench.action.gotoLine`                       |
+
+### 🐛 Debugging
+
+| Shortcut      | Action                    | VSCode Command                         |
+| ------------- | ------------------------- | -------------------------------------- |
+| `Cmd+Shift+Y` | Toggle Debug Console      | `workbench.debug.action.toggleRepl`    |
+| `Cmd+\`       | Toggle Breakpoint         | `editor.debug.action.toggleBreakpoint` |
+| `Cmd+Y`       | Continue (when debugging) | `workbench.action.debug.continue`      |
+| `F6`          | Step Over                 | `workbench.action.debug.stepOver`      |
+| `F7`          | Step Into                 | `workbench.action.debug.stepInto`      |
+| `F8`          | Step Out                  | `workbench.action.debug.stepOut`       |
+
+### ✏️ Editing
+
+| Shortcut        | Action                 | VSCode Command                         |
+| --------------- | ---------------------- | -------------------------------------- |
+| `Cmd+Ctrl+Up`   | Move Line Up           | `editor.action.moveLinesUpAction`      |
+| `Cmd+Ctrl+Down` | Move Line Down         | `editor.action.moveLinesDownAction`    |
+| `Cmd+/`         | Comment Line           | `editor.action.commentLine`            |
+| `Cmd+[`         | Outdent                | `editor.action.outdentLines`           |
+| `Cmd+]`         | Indent                 | `editor.action.indentLines`            |
+| `Cmd+Shift+L`   | Select All Occurrences | `editor.action.selectHighlights`       |
+| `Cmd+Shift+F`   | Find in Files          | `workbench.action.findInFiles`         |
+| `Cmd+Option+F`  | Find & Replace         | `editor.action.startFindReplaceAction` |
+| `Ctrl+I`        | Format Document        | `editor.action.formatDocument`         |
+
+### 🎨 UI
+
+| Shortcut | Action         | VSCode Command                             |
+| -------- | -------------- | ------------------------------------------ |
+| `Cmd+0`  | Toggle Sidebar | `workbench.action.toggleSidebarVisibility` |
+
+## Notes
+
+- You can modify any shortcut by editing your `keybindings.json` file
+- FlowDeck-specific commands (like `extension.flowdeck.buildAndRun`) are only available when the FlowDeck extension is installed
+- Use `Cmd+K Cmd+S` to open the visual Keyboard Shortcuts editor to see and resolve conflicts
