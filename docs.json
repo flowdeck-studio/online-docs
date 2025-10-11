@@ -34,7 +34,7 @@
       },
       {
         "group": "Advanced Configuration",
-        "pages": ["advanced/commands", "advanced/sourcekit-lsp", "advanced/tasks-json", "advanced/launch-json"]
+        "pages": ["advanced/xcode-style-shortcuts", "advanced/commands", "advanced/sourcekit-lsp", "advanced/tasks-json", "advanced/launch-json"]
       }
     ]
   },
