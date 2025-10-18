@@ -29,7 +29,7 @@
         "pages": ["the-basics/overview", "the-basics/xcode-projects", "the-basics/code-intelligence", "the-basics/simulators", "the-basics/devices", "the-basics/building", "the-basics/debugging"]
       },
       {
-        "group": "✨ Pro Features",
+        "group": "Advanced Features",
         "pages": ["pro-features/overview", "pro-features/build-optimizer", "pro-features/testing", "pro-features/logging"]
       },
       {
