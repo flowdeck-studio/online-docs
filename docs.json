@@ -33,6 +33,10 @@
         "pages": ["advanced-features/overview", "advanced-features/build-optimizer", "advanced-features/testing", "advanced-features/logging"]
       },
       {
+        "group": "Shortcuts & Commands",
+        "pages": ["shortcuts/xcode-style-shortcuts", "shortcuts/commands"]
+      },
+      {
         "group": "Advanced Configuration",
         "pages": ["advanced/xcode-style-shortcuts", "advanced/commands", "advanced/sourcekit-lsp", "advanced/tasks-json", "advanced/launch-json"]
       }
