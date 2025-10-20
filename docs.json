@@ -30,7 +30,7 @@
       },
       {
         "group": "Advanced Features",
-        "pages": ["pro-features/overview", "pro-features/build-optimizer", "pro-features/testing", "pro-features/logging"]
+        "pages": ["advanced-features/overview", "advanced-features/build-optimizer", "advanced-features/testing", "advanced-features/logging"]
       },
       {
         "group": "Advanced Configuration",
