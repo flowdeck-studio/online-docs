@@ -22,10 +22,9 @@ FlowDeck provides a comprehensive set of commands accessible through the Command
 | `FlowDeck: Clean` | Clean build artifacts |
 | `FlowDeck: Test` | Run tests for current scheme |
 | `FlowDeck: Build for testing` | Build test targets without running |
-| `FlowDeck: Resolve dependencies` | Resolve package dependencies |
+| `FlowDeck: Clean Derived Data` | Deletes FlowDeck's Derived Data & Artifacts folder |
 | `FlowDeck: Select build configuration` | Choose Debug/Release configuration |
 | `FlowDeck: Set scheme` | Select the active build scheme |
-| `FlowDeck: Diagnose Build setup` | Troubleshoot build configuration issues |
 
 ## Xcode Project Generation/Management
 
@@ -61,16 +60,15 @@ FlowDeck provides a comprehensive set of commands accessible through the Command
 | `FlowDeck: Diagnose Test Discovery` | Troubleshoot test discovery issues |
 | `FlowDeck: Open Test File` | Open source file for selected test |
 
-## Build Optimizer Commands
+## Swift Package Manager Commands
 
 | Command | Description |
 |---------|-------------|
-| `FlowDeck: Install Build Optimizer` | Install the build optimization helper |
-| `FlowDeck: Uninstall Build Optimizer` | Remove build optimizer |
-| `FlowDeck: Check Xcode Optimizer Status` | Verify optimizer installation |
-| `FlowDeck: Diagnose Build Optimizer` | Run diagnostic tests |
-| `FlowDeck: Show Build Optimizer Logs` | View optimizer logs |
-| `FlowDeck: Repair Build Optimizer Installation` | Fix installation issues |
+| `FlowDeck: Add Swift package` | Start the SPM add assistant |
+| `FlowDeck: Update to Latest Package Versions` | Update all Pagackes in the project |
+| `FlowDeck: Resolve Package Versions` | Refresh Packages after updating required versions |
+| `FlowDeck: Reset Package Caches` | Removes all caches and redownload packages |
+
 
 ## LSP & Indexing Commands
 
@@ -87,8 +85,9 @@ FlowDeck provides a comprehensive set of commands accessible through the Command
 |---------|-------------|
 | `FlowDeck: Reset Extension Cache` | Clear FlowDeck's cached data |
 | `FlowDeck: Open Xcode` | Launch Xcode app |
-| `FlowDeck: Reinstall All Tools` | Reinstall FlowDeck dependencies |
+| `FlowDeck: Reinstall All Tools` | Reinstall FlowDeck Required Tools |
 | `FlowDeck: Test Error Reporting` | Test error reporting system |
+| `FlowDeck: Diagnose Build setup` | Troubleshoot build configuration issues |
 
 ## Debugging Commands
 
@@ -101,6 +100,7 @@ FlowDeck provides a comprehensive set of commands accessible through the Command
 | Command | Description |
 |---------|-------------|
 | `FlowDeck: Refresh view` | Refresh the FlowDeck panel |
+| `FlowDeck: Open Welcome Page` | Opens the Welcome page and restarts Onboarding |
 
 ## Default Keyboard Shortcuts
 

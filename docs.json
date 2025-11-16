@@ -25,20 +25,20 @@
         "pages": ["introduction", "install-and-setup"]
       },
       {
-        "group": "Basic Features",
-        "pages": ["the-basics/overview", "the-basics/xcode-projects", "the-basics/code-intelligence", "the-basics/simulators", "the-basics/devices", "the-basics/building"]
+        "group": "Core Features",
+        "pages": ["basics-overview", "xcode-projects", "code-intelligence", "simulators", "devices", "building"]
       },
       {
         "group": "Advanced Features",
-        "pages": ["advanced-features/overview", "advanced-features/debugging", "advanced-features/testing", "advanced-features/logging", "advanced-features/swift-package-manager", "advanced-features/asset-catalog"]
+        "pages": ["advanced-features-overview", "debugging", "testing", "logging", "swift-package-manager", "asset-catalog"]
       },
       {
         "group": "Shortcuts & Commands",
-        "pages": ["shortcuts/xcode-style-shortcuts", "shortcuts/commands"]
+        "pages": ["xcode-style-shortcuts", "commands"]
       },
       {
         "group": "Advanced Configuration",
-        "pages": ["advanced/sourcekit-lsp", "advanced/tasks-json", "advanced/launch-json"]
+        "pages": ["sourcekit-lsp", "tasks-json", "launch-json"]
       }
     ]
   },
