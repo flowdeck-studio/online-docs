@@ -30,7 +30,7 @@
       },
       {
         "group": "Advanced Features",
-        "pages": ["advanced-features/overview", "advanced-features/debugging", "advanced-features/build-optimizer", "advanced-features/testing", "advanced-features/logging"]
+        "pages": ["advanced-features/overview", "advanced-features/debugging", "advanced-features/testing", "advanced-features/logging"]
       },
       {
         "group": "Shortcuts & Commands",
