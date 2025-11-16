@@ -30,7 +30,7 @@
       },
       {
         "group": "Advanced Features",
-        "pages": ["advanced-features/overview", "advanced-features/debugging", "advanced-features/testing", "advanced-features/logging"]
+        "pages": ["advanced-features/overview", "advanced-features/debugging", "advanced-features/testing", "advanced-features/logging", "advanced-features/swift-package-manager", "advanced-features/asset-catalog"]
       },
       {
         "group": "Shortcuts & Commands",
